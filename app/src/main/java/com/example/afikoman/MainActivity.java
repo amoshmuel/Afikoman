@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     private Button challenge5;
     private Bundle bundle;
     private int [] array = {0,0,0,0,0};
-    private String sns = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,27 +31,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        if(sns.equals("")){
-            return;
-        }else{
-            if (array[0] == 1){
-                challenge1.setBackgroundColor(Color.parseColor("#00FF00"));
-            }if (array[1] == 1){
-                challenge2.setBackgroundColor(Color.parseColor("#00FF00"));
-            }if (array[2] == 1){
-                challenge3.setBackgroundColor(Color.parseColor("#00FF00"));
-            }if (array[3] == 1){
-                challenge4.setBackgroundColor(Color.parseColor("#00FF00"));
-            }if (array[4] == 1){
-                challenge5.setBackgroundColor(Color.parseColor("#00FF00"));
-            }
-        }
+      if (array[0] == 1){
+          challenge1.setBackgroundColor(Color.parseColor("#00FF00"));
+      }if (array[1] == 1){
+          challenge2.setBackgroundColor(Color.parseColor("#00FF00"));
+      }if (array[2] == 1){
+          challenge3.setBackgroundColor(Color.parseColor("#00FF00"));
+      }if (array[3] == 1){
+          challenge4.setBackgroundColor(Color.parseColor("#00FF00"));
+      }if (array[4] == 1){
+          challenge5.setBackgroundColor(Color.parseColor("#00FF00"));
+      }
     }
 
     private void unboxingBundle() {
         try {
             bundle = getIntent().getExtras().getBundle("BUNDLE");
-            sns = bundle.getString("CHALLENGE");
             array = bundle.getIntArray("ARR");
         }catch (Exception e){
 
@@ -100,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     private void startGame(String sns) {
         Intent myIntent = new Intent();
         Bundle bundle = initBundleData(sns);
-        myIntent = new Intent(this, Challenge1.class);
+        myIntent = new Intent(this, Answer.class);
         myIntent.putExtra("BUNDLE", bundle);
         startActivity(myIntent);
         MainActivity.this.finish();

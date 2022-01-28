@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Afikoman" >
         <activity
-            android:name=".Challenge1"
+            android:name=".Answer"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
